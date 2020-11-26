@@ -1,0 +1,64 @@
+{% extends "layout.html" %}
+{% block body %}
+    <form action="{% url "signup" %}" method="post">
+    {% csrf_token %}
+    <h1> SIGN UP HERE! </h1>
+    <table width="450px">
+
+        <tr>
+            <td>
+                <label for="fname"> First Name: </label>
+                <input type="text" name="fname" value="John">
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <label for="lname"> Last Name: </label>
+                <input type="text" name="lname" value="Doe">
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <label for="username"> Username: </label>
+                <input type="text" name="username" value="j_dog">
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                {{ username_message }}
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <label for="password1"> Password: </label>
+                <input type="password" name="password1">
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <label for="password1"> Re-type password: </label>
+                <input type="password" name="password2">
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                {{ password_message }}
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <input type="submit" value="SIGN ME UP">
+            </td>
+        </tr>
+
+    </table>
+    <a href="{% url "signup" %}"> Sign up! </a>
+    </form>
+{% endblock %}

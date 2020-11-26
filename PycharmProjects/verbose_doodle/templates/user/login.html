@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+{% block body %}
+
+<form action="{% url "login" %}" method="post">
+    {% csrf_token %}
+    <h1> LOG IN HERE! </h1>
+    <table width="450px">
+        <tr>
+            <td>
+                <label for="username"> USERNAME : </label>
+                <input type="text" name="username">
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <label for="password"> PASSWORD : </label>
+                <input type="password" name="password">
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <input type="submit" value="LOG ME IN">
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                {{ message }}
+            </td>
+        </tr>
+
+    </table>
+
+    <a href="{% url "signup" %}"> Sign up here instead! </a>
+
+</form>
+
+{% endblock %}
